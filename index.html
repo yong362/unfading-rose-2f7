@@ -214,6 +214,14 @@ body {
   animation: fishRise 2.4s cubic-bezier(.22, .9, .28, 1) both,
              fishBob 6s ease-in-out 2.6s infinite;
 }
+/* the closing question rises up to the flower: after the bloom it sits
+   directly beneath the bouquet, as if the bouquet itself is asking */
+.scene > .flower-wrap { order: 0; }
+.scene > .fish        { order: 1; }
+.scene > .prompt      { order: 2; }
+.scene > .eyebrow     { order: 3; }
+.scene > .message     { order: 4; }
+.scene > #candy       { order: 5; }
 
 /* ---------- reduced motion: no idle motion, but the bloom still plays on tap ---------- */
 @media (prefers-reduced-motion: reduce) {
