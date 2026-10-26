@@ -201,11 +201,24 @@ body {
 }
 .fish .candy-cn { font-size: clamp(1.05rem, 3.8vw, 1.35rem); color: var(--gold); }
 .fish figcaption { font-size: .8rem; }
+/* the closing question rises like a fish coming up for the hook, then bobs in the water */
+@keyframes fishRise {
+  from { opacity: 0; transform: translateY(34px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fishBob {
+  0%, 100% { transform: none; }
+  50%      { transform: translateY(-6px); }
+}
+.fish.show {
+  animation: fishRise 2.4s cubic-bezier(.22, .9, .28, 1) both,
+             fishBob 6s ease-in-out 2.6s infinite;
+}
 
 /* ---------- reduced motion: no idle motion, but the bloom still plays on tap ---------- */
 @media (prefers-reduced-motion: reduce) {
   /* keep the one-time open animation; only the continuous effects go silent */
-  .flower-wrap, .open #bouquet, .prompt { animation: none; }
+  .flower-wrap, .open #bouquet, .prompt, .fish.show { animation: none; }
   /* words fade in but don't slide */
   .js .message, .js .eyebrow, .js .candy { transform: none; }
 }
